@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+	<head>
+		<title>M4103C-Projet-JS - Recherche des caractéristiques d'un Super-Héro</title>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" type="image/x-icon" href="favicon-js.ico">
+		<link rel="stylesheet" href="styles.css">
+		<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<h1>Recherche des caractéristiques d'un Super-Héro</h1>
+
+			<p id="explication">Cette page permet de rechercher le NOM d'un Superhero via l'API publique de <a href="https://superheroapi.com/" target="_blank">superheroapi.com</a>.<br>
+			Saisir le nom d'un Super-Héro pour rechercher ces caractéristiques, et enregistrer vos recherches favorites pour les retrouver facilement.</p>
+			<p> Vous trouverez la liste de l'ensemble des héros ici : <a href="https://superheroapi.com/ids.html" target="_blank">Liste des héros </a>.<br>  </p>
+		</header>
+		<hr>
+
+
+		<main id="conteneur">
+			<!-- Section de recherche (avec résultats) -->
+			<section id="section-recherche">
+				<div id="bloc-recherche">
+					<!-- Champ de recherche -->
+					<input id="champ-recherche" type="text" placeholder="Entrer le nom d'un Super-héros, par exemple : Superman" onKeyUp="verif_is_in_fav(); actualiser_autocomplete();" onKeyPress="if (event.keyCode == 13) sendToApi()"/>
+
+					<!-- Boutons  de la Recherche-->
+					<button id="btn-lancer-recherche" type="button"
+					class="btn_clicable" title="Lancer la recherche" onclick="sendToApi()">
+						<!-- Icone provenant de flaticon.com -->
+						<img src="images/loupe.svg" alt="Loupe pour recherche" width=22 >
+					</button>
+
+					<button id="btn-favoris" type="button" disabled
+					title="Ajouter la recherche aux favoris" onclick="mettre_en_fav()">
+						<!-- Icone étoile vide => Recherche pas en favoris -->
+						<img id="img-favoris" src="images/etoile-vide.svg" alt="Etoile vide" width=22 >
+
+						<!-- Icone étoile pleine => Recherche en favoris -->
+						<!-- <img src="images/etoile-pleine.svg" alt="Etoile pleine" width=22 > -->
+
+						<!-- (Icones provenant de flaticon.com) -->
+					</button>
+				</div>
+
+				<!-- Résultats de recherche -->
+				<div id="bloc-gif-attente">
+					<img src='images/attente-ajax.gif' alt="GIF Attente de résultats" width=50 />
+				</div>
+					<p class="info-vide" id="erreur_hero_Nexiste"></p>
+				<div id="bloc-resultats">
+
+
+					<!--
+					<p class="res">Résultat 1 ...</p>
+					<p class="res">Résultat 2 ...</p>
+					<p class="res">Résultat 3 ...</p>
+					-->
+
+				</div>
+			</section>
+
+			<!-- Section de séparation (avec la bordure verte) -->
+			<section id="section-separation"></section>
+
+			<!-- Section des recherches favorites -->
+			<section id="section-favoris">
+				<h2>Recherches favorites</h2>
+				<p>Cliquer sur une recherche favorite ci-dessus pour relancer celle-ci :</p>
+				<ul id="liste-favoris">
+					<!--
+					<li>
+						<span title="Cliquer pour relancer la recherche">Grenoble</span>
+						<img src="images/croix.svg" alt="Icone pour supprimer le favori" width=15 title="Cliquer pour supprimer le favori">
+					</li>
+				-->
+				</ul>
+				<p class="info-vide" id="fav_Nexiste">( &empty; Aucune recherche enregistrée )</p>
+			</section>
+
+		</main>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+		<script
+  	src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+  	integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+		crossorigin="anonymous"></script>
+		<script src="js/use-api.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/fav.js"></script>
+	</body>
+</html>
