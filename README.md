@@ -10,7 +10,7 @@ Voici la liste de l'ensemble des développeurs qui ont contribué au succès de 
 
 Comment lancer l'application Web ? 
 - Téléchargez le code de l'application au format .ZIP
-- Dé-zippé le fichier depuis votre bureau. 
+- Dé-zippez le fichier depuis votre bureau. 
 - Lancez le fichier "index.html" (Faire un clic droit sur le fichier puis "Ouvrir" OU bien un double-clic sur le fichier). 
 
 Vous pourrez ensuite découvrir le site et utiliser l'API ! 
